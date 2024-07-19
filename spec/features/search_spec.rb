@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Search', type: :feature do
   it "returns members from search by nation" do
-    @members = MemberFacade.new.get_member_by_nation("fire")
+    @members = MemberFacade.new.get_members_by_nation("fire+nation")
 
     visit "/"
     
@@ -12,7 +12,7 @@ RSpec.describe 'Search', type: :feature do
     expect(current_path).to eq("/search")
 
     expect(page).to have_content("Population: #{@members.count}")
-
+# save_and_open_page
     within(first(".member")) do
       expect(page).to have_css(".name")
       expect(page).to have_css(".image")

@@ -1,0 +1,15 @@
+<h2>Seach Results</h2>
+<h3>Population: <%= @members.count %></h3>
+<div class="members">
+  <ul>
+  <%= @members.take(25).each do |member|%>
+    <div class="member">
+      <li class="image"><%= image_tag("#{member.photo_url}", class: "airbender") %></li>
+      <li class="name"><%= member.name %><li>
+      <li class="allies"><%= member.allies %><li>
+      <li class="enemies"><%= member.enemies %><li>
+      <li class="affiliation"><%= member.affiliation %><li>
+    </div>
+  <% end%>
+  </ul>
+</div>
