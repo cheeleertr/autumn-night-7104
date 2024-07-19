@@ -1,7 +1,7 @@
 <h2>Seach Results</h2>
 <h3>Population: <%= @members.count %></h3>
 <div class="members">
-  <%= @members.take(25).each do |member|%>
+  <% @members.take(25).each do |member|%>
     <div class="member">
       <div class="image"><%= image_tag("#{member.photo_url}", class: "airbender") %></div>
       <div class="name">Name: <%= member.name %></div>

@@ -7,11 +7,14 @@ RSpec.describe 'Search', type: :feature do
     visit "/"
     
     select "Fire Nation", :from => :nation
+    # select "Water Tribe", :from => :nation
     click_button('Search For Members')
 
     expect(current_path).to eq("/search")
 
     expect(page).to have_content("Population: #{@members.count}")
+
+    expect(page).to have_css(".member", count: 25)
 
     within(first(".member")) do
       expect(page).to have_css(".image")
